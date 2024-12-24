@@ -134,9 +134,8 @@
             if (e.key === 'Enter') {
                 const query = e.target.value.trim();
                 if (query) {
-                    const uvBaseURL = '/UV/'; // Adjust this to match the path to your UV folder
-                    const uvProxyURL = uvBaseURL + 'service/' + encodeURIComponent(`https://www.google.com/search?q=${query}`);
-                    window.location.href = uvProxyURL;
+                    const ultravioletURL = '/ultraviolet/service/' + encodeURIComponent(`https://www.google.com/search?q=${query}`);
+                    window.location.href = ultravioletURL;
                 }
             }
         });

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Search</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            text-align: center;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #b28dff;
+            text-shadow: 0 0 15px #b28dff, 0 0 25px #e0aaff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 4rem;
+            color: #b28dff;
+            text-shadow: 0 0 20px #b28dff, 0 0 30px #e0aaff;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            margin-top: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .search-input {
+            width: 600px;
+            max-width: 90%;
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            border: 3px solid #b28dff;
+            border-radius: 50px;
+            outline: none;
+            background: black;
+            color: white;
+            text-align: center;
+            box-shadow: 0 0 15px #b28dff, 0 0 25px #e0aaff;
+        }
+
+        .search-input::placeholder {
+            color: #b28dff;
+        }
+
+        /* Plus Button */
+        .plus-button {
+            position: absolute;
+            top: 50%;
+            right: -60px;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: #b28dff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: black;
+            box-shadow: 0 0 15px #b28dff, 0 0 25px #e0aaff;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .plus-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .search-input {
+                font-size: 1.2rem;
+                width: 80%;
+            }
+
+            .plus-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+                right: -45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo">
+            <i class="fas fa-satellite"></i>
+            <span>ORBIT</span>
+        </div>
+        <!-- Search Bar Section -->
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search Google or type a URL with https://">
+            <div class="plus-button">+</div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.search-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const query = e.target.value.trim();
+                if (query) {
+                    const uvBaseURL = '/UV/'; // Adjust this to match the path to your UV folder
+                    const uvProxyURL = uvBaseURL + 'service/' + encodeURIComponent(`https://www.google.com/search?q=${query}`);
+                    window.location.href = uvProxyURL;
+                }
+            }
+        });
+
+        document.querySelector('.plus-button').addEventListener('click', function() {
+            alert('Enhance your search feature here!');
+        });
+    </script>
+</body>
+</html>
